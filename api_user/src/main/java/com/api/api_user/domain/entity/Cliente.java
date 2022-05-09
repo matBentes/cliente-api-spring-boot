@@ -2,17 +2,21 @@ package com.api.api_user.domain.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
@@ -51,4 +55,11 @@ public class Cliente {
     @JsonFormat(pattern="dd/mm/yyyy")
     @Temporal(TemporalType.DATE)
     Date nascimento;
+
+    // @Column(name="endreco_id")
+    // @NotBlank(message = "Endereco é obrigatório")
+    @JoinColumn(name = "endereco", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    Endereco endereco;
 }

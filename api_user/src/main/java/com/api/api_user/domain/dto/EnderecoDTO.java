@@ -1,7 +1,5 @@
 package com.api.api_user.domain.dto;
 
-import com.api.api_user.domain.entity.Endereco;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDTO {
+public class EnderecoDTO {
     long id;
-    String cpf; 
-    String nome;
-    String sexo; 
-    String nascimento;
-    Endereco endereco;
+    String CEP; 
+    String rua;
+    String bairro; 
+    String numero;
+    String cidade;
+    String UF; 
 }

@@ -6,9 +6,7 @@ import javax.validation.Valid;
 
 import com.api.api_user.domain.dto.ClienteDTO;
 import com.api.api_user.domain.dto.ResponseDto;
-import com.api.api_user.domain.dto.UserDto;
 import com.api.api_user.domain.entity.Cliente;
-import com.api.api_user.domain.repository.ClienteRepository;
 import com.api.api_user.domain.service.ClienteService;
 import org.springframework.http.HttpStatus;
 

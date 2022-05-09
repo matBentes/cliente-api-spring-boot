@@ -17,12 +17,29 @@ CREATE TABLE usuario(
     PRIMARY KEY (id)
 );
 
+USE banco;
+
 CREATE TABLE cliente(
     id int AUTO_INCREMENT,
     cpf varchar(11) NOT NULL,
     nome varchar(50) NOT NULL,
     sexo varchar(1) NOT NULL,
     nascimento DATE NOT NULL DEFAULT CURRENT_TIME,
+    endereco int, 
+    PRIMARY KEY (id),
+    FOREIGN KEY (endereco) REFERENCES endereco(id)
+);
+
+USE banco;
+
+CREATE TABLE endereco(
+    id int AUTO_INCREMENT,
+    cep varchar(8) NOT NULL, 
+    rua varchar(50) NOT NULL,
+    bairro varchar(50) NOT NULL,
+    numero varchar(50) NOT NULL,
+    cidade varchar(50) NOT NULL,
+    UF varchar(2) NOT NULL,
     PRIMARY KEY (id)
 );
 

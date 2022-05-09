@@ -1,12 +1,12 @@
 package com.api.api_user.domain.service;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.api.api_user.domain.dto.ClienteDTO;
 import com.api.api_user.domain.dto.ResponseDto;
 import com.api.api_user.domain.entity.Cliente;
+import com.api.api_user.domain.entity.Endereco;
 import com.api.api_user.domain.enumeration.Status;
 import com.api.api_user.domain.repository.ClienteRepository;
 
@@ -29,6 +29,8 @@ public class ClienteService {
     ClienteRepository clienteRepository;
 
     public ResponseDto saveClient(Cliente cliente) {
+        Endereco endereco = cliente.getEndereco();
+        endereco.setCliente(cliente);
         responseDto.setId(clienteRepository.save(cliente).getId());
         responseDto.setMenssage("Cliente incluido com sucesso");
         responseDto.setStatus(Status.SUCCESS.value());
